@@ -1,0 +1,18 @@
+--tweenservice
+
+local TwennService = game:GetService("TweenService")
+local part = script.Parent
+
+local tweeninfo = TweenInfo.new(5 , Enum.EasingStyle.Bounce , Enum.EasingDirection.Out)
+
+local goal = {
+	Position = Vector3.new(42 , 2 ,51)
+}
+
+local tween = TwennService:Create(part , tweeninfo , goal)
+
+tween:Play()
+
+tween.Completed:Connect(function()
+	print("tween has been completed")
+end)
