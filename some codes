@@ -1,4 +1,5 @@
 --tweenservice
+--Moving the Part from 1 position to another!
 
 local TwennService = game:GetService("TweenService")
 local part = script.Parent
@@ -16,3 +17,28 @@ tween:Play()
 tween.Completed:Connect(function()
 	print("tween has been completed")
 end)
+
+
+
+--tool equipment
+-- equiping , unequipping , activating , deactivating
+local tool = script.Parent
+
+tool.Equipped:Connect(function ()
+	print("this toll is equipped")
+end)
+
+tool.Unequipped:Connect(function ()
+	print("the tool is unequipped")
+end)
+
+
+tool.Activated:Connect(function ()
+	print("this tool is activated")
+end)
+
+
+tool.Deactivated:Connect(function ()
+	print("the tool is deactivated")
+end)
+
