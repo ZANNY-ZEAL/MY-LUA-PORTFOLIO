@@ -82,3 +82,59 @@ UserInputService.InputBegan:Connect(function(input , gameprocessedevent)
 	end
 end)
 
+--now the interseting one:
+--cframe and some maths
+
+
+-- ok there is a spwan button and a cart model situated in the Replicated storage.
+-- so here  take when i click the spawn button it will take the model from the replicate storage and it spawns near the player uing cframe.
+
+local player = game.Players.LocalPlayer
+local character = player.Character
+
+
+local spawnButton = script.Parent
+
+
+local kartModel = game.ReplicatedStorage:WaitForChild("KartModel")
+
+
+-- Function to spawn the kart
+local function spawnKart()
+    -- If a kart already exists, remove it
+    if currentKart then
+        currentKart:Destroy()
+    end
+
+    -- Clone the kart model and position it near the character
+    local newKart = kartModel:Clone()
+    newKart.Parent = workspace
+    newKart:SetPrimaryPartCFrame(character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 5)) -- Adjust spawn position
+    currentKart = newKart
+end
+
+-- Connect the spawn function to the button click event
+spawnButton.MouseButton1Click:Connect(spawnKart)
+
+
+--changing the walk speed, jump p ower of the charecter.
+
+
+local UserInputService = game:GetService("UserInputService")
+
+local charecter = script.Parent
+local humanoid = charecter:WaitForChild("Humanoid")
+
+
+UserInputService.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.R then
+		humanoid.Walkspeed += 16
+		humanoid.JumpPower += 20
+	end
+end)
+
+
+--double jump system!
+
+
+
