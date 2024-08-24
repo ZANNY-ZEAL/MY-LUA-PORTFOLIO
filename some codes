@@ -72,3 +72,13 @@ PlayerCoins:IncrementAsync("Aadidevmohan" , 5)
 local coins = PlayerCoins:GetAsync("Aadidevmohan")
 print(coins)
 
+--userinputservice!
+
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(input , gameprocessedevent)
+	if input.KeyCode == Enum.KeyCode.A  then
+		print ("The user has pressed the button A")
+	end
+end)
+
