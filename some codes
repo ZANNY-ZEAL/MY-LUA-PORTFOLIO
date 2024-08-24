@@ -53,4 +53,22 @@ local GameId = 113184310928921
 game.Players.PlayerAdded:Connect(function(plr)
 	TeleportService:TeleportAsync(GameId , {plr})
 end)
+--set async data store 
+
+local DataStorService = game:GetService("DataStoreService")
+local PlayerCoins = DataStorService:GetDataStore("PlayerCoins")
+PlayerCoins:SetAsync("Aadidevmohan" , 10)
+
+local coins = PlayerCoins:GetAsync("Aadidevmohan")
+print(coins)
+
+--Now lets increment it into  the 15 from 10!
+
+local DataStorService = game:GetService("DataStoreService")
+local PlayerCoins = DataStorService:GetDataStore("PlayerCoins")
+--PlayerCoins:SetAsync("Aadidevmohan" , 10)
+PlayerCoins:IncrementAsync("Aadidevmohan" , 5)
+
+local coins = PlayerCoins:GetAsync("Aadidevmohan")
+print(coins)
 
