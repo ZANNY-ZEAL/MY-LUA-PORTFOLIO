@@ -21,6 +21,7 @@ end)
 
 
 --tool equipment
+
 -- equiping , unequipping , activating , deactivating
 local tool = script.Parent
 
@@ -40,5 +41,16 @@ end)
 
 tool.Deactivated:Connect(function ()
 	print("the tool is deactivated")
+end)
+
+
+
+--easy teleport with the roblox gui
+local TeleportService = game:GetService("TeleportService")
+
+local GameId = 113184310928921
+
+game.Players.PlayerAdded:Connect(function(plr)
+	TeleportService:TeleportAsync(GameId , {plr})
 end)
 
